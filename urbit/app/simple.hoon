@@ -21,7 +21,7 @@
 ::  boilerplate -- but it does give us a chance to see how ergonomic this
 ::  programming is in practice.
 ::
-::  
+::
 ::  USAGE
 ::
 ::  In order to replicate a particular kind of state, we need a `lake`.
@@ -64,14 +64,14 @@
 ::  In order to subscribe to a state, the agent declares the lake it wants to
 ::  use and on which paths the states of that shape can be received.
 ::
-::  Here, the `log` lake will be used to manage states on the path `/log`: 
+::  Here, the `log` lake will be used to manage states on the path `/log`:
 =/  sub-log  (mk-subs log ,[%log ~])
 ::  Note that the path is specified as a mold! This does not mean that you are
 ::  free to use molds that aren't path-shaped. Your agent will compile, but you
 ::  will get runtime errors and the library won't work.
 ::
 ::  Similarly, the `sum` lake will be used to manage states on paths starting
-::  with `/sum`, e.g. `/sum/foo`, `/sum` or `/sum/foo/bar`. 
+::  with `/sum`, e.g. `/sum/foo`, `/sum` or `/sum/foo/bar`.
 =/  sub-sum  (mk-subs sum ,[%sum *])
 ::
 ::  In order to publish a state, the agent makes the exact same declaration,
@@ -167,7 +167,7 @@
   ::    Your agent simply crashed while getting notified of a new state. This is
   ::    fine and allowed! It will still have that state available (until the
   ::    next one replaces it). The failure flag is strictly for your own
-  ::    bookkeeping, and most agents wont care about this information. 
+  ::    bookkeeping, and most agents wont care about this information.
   ::  -  `rock:lake` is the current state.
   ::
   ::  For `+read:du`, the type is `(map path rock:lake)`, where:
@@ -189,14 +189,14 @@
     ::  using the only possible path, `/sum/foo`. Think of this as analogous to
     ::  current `[%give %fact paths cage]` cards.
       %add
-    =^  cards  pub-sum  (give:du-sum [%sum %foo ~] !<(@ud vase))
+    =^  cards  pub-sum  (give:du-sum [%sum %foo ~] %0 !<(@ud vase))
     ~&  >  "pub-sum is: {<read:du-sum>}"
     [cards this]
   ::
   ::  Here we also use `+give:du`, but on the `log`-publication.
       %log
     =^  cards  pub-log
-      (give:du-log !<([?([%log *] [%other-log ~]) cord] vase))
+      (give:du-log !<([?([%log ~] [%other-log ~]) %0 cord] vase))
     ~&  >  "pub-log is: {<read:du-log>}"
     [cards this]
   ::
@@ -204,7 +204,7 @@
   ::  sample is the ship to subscribe to, followed by the agent and then finally
   ::  the path, which must nest under the paths passed to `da`.
       %surf-log
-    =^  cards  sub-log  
+    =^  cards  sub-log
       (surf:da-log !<(@p (slot 2 vase)) %simple !<([%log ~] (slot 3 vase)))
     ~&  >  "sub-log is: {<read:da-log>}"
     [cards this]
@@ -351,7 +351,7 @@
   ::  If you want to handle these pokes, you need to do two things:
   ::  1. Run `+fled` on the incoming vase, and pass it to `!<`,
   ::  2. using a mold that's constructed as a tagged union ($%) of all your
-  ::     subscriptions' on-rock molds, accessed using `$from:da`. 
+  ::     subscriptions' on-rock molds, accessed using `$from:da`.
   ::
   ::  This will give you a cell whose head will be the path that the state is
   ::  available on, and whose tail is
@@ -363,7 +363,7 @@
       %sss-on-rock
     ?-    msg=!<($%(from:da-log from:da-sum) (fled vase))
         [[%log ~] *]
-      ~?  ?=(^ rock.msg)
+      ~?  ?=([~ @ *] rock.msg)
         "last message from {<from.msg>} on {<src.msg>} is {<,.-.rock.msg>}"
       ?<  ?=([%crash *] rock.msg)
       `this
