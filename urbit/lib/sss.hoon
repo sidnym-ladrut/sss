@@ -116,10 +116,10 @@
     |=  res=(response:poke lake paths)
     ^-  (quip card:agent:gall subs)
     =*  current  [src.bowl dude.res path.res]
-    ?:  ?=(%future what.res)  `0/(~(del by sub) current)
     =/  old=flow  (fall (~(got by sub) current) *flow)
-    ?:  ?=(%tomb what.res)
-      =/  =flow  old(stale &)
+    ?<  &(?=(%future what.res) fail.old)  ::  crash on subsequent %future calls
+    ?:  ?=(?(%future %tomb) what.res)     ::  mark fail for first %future call
+      =/  =flow  ?:(?=(%future what.res) old(fail &) old(stale &))
       :_  0/(~(put by sub) current `flow)  :_  ~
       (on-rock-poke fake=& current flow ~)
     ::
