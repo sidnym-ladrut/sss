@@ -172,13 +172,13 @@
     +$  result  (response:poke lake paths)
     +$  rule    $~  [`5 5]
                 [horizon=(unit @ud) frequency=@ud] ::  Retention policy
-    +$  tide  $+  tide
+    +$  tide
       $:  rok=((mop aeon vock:lake) gte)
           wav=((mop aeon vave:lake) lte)
           rul=rule
           mem=(jug ship dude)
       ==
-    +$  buoy  $+  buoy
+    +$  buoy
       $:  tid=$~(*tide $@(aeon tide))
           alo=(unit (set ship))
       ==
