@@ -390,7 +390,6 @@
     |=  [payload=_|2:*(response:poke lake paths) =ship =dude path=paths]
     ^-  card:agent:gall
     =*  mark  (cat 3 %sss- name:lake)
-    ~?  ?=(%future what.payload)  'this should never happen. if you see this in dojo, please tell ~midlev-mindyr'
     =/  callback=^path
       ?:  ?=(?(%tomb %future) what.payload)  (zoom tomb-response/(scot %p ship)^dude^path)
       (zoom scry-response/(scot %p ship)^dude^(scot %ud aeon.payload)^path)

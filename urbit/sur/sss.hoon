@@ -1,8 +1,6 @@
 |%
 ++  lake
   |$  [rock vock wave vave]
-  :: ?>  (levi -:!>(*rock) -:!>(*vock))
-  :: ?>  (levi -:!>(*wave) -:!>(*vave))
   $_  ^?
   |%
   ++  name  *term
