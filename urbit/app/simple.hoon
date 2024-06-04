@@ -137,25 +137,27 @@
     |=  old=state-0
     ^-  _this
     |^  this(sub-sum (sove sub-sum.old), pub-sum (pove pub-sum.old))
-    ++  mock  |=(old=vock:sum-0 `vock:sum`(urck:sum [%0 old]))
-    ++  mave  |=(old=vave:sum-0 `vave:sum`(uwve:sum [%0 old]))
+    ++  urck  |=(old=vock:sum-0 `vock:sum`(urck:sum [%0 old]))
+    ++  uwve  |=(old=vave:sum-0 `vave:sum`(uwve:sum [%0 old]))
     +$  trok  ((mop aeon vock:sum) gte)
     +$  twav  ((mop aeon vave:sum) lte)
     ++  sove
       |=  old=sype-0
       ^-  sype-1
+      ?:  =(~ +.old)  *sype-1  ::  avoid invalid bunt in +rib:by gate
       =<  -  %+  ~(rib by +.old)  *sype-1
-      |=  [kev=_=|(sype-0 ?>(?=(^ ->) n.->)) acc=sype-1]
+      |=  [kev=_?>(?=([%0 ^] old) n.+.old) acc=sype-1]
       :_  kev
       :-  -.acc  %+  ~(put by +.acc)  p.kev
       ?~  q.kev  q.kev
-      `u.q.kev(rock (mock rock.u.q.kev))
+      `u.q.kev(rock (urck rock.u.q.kev))
     ++  pove
       |=  old=pype-0
       ^-  pype-1
       ?>  ?=(%1 -.old)
+      ?:  =(~ +.old)  *pype-1  ::  avoid invalid bunt in +rib:by gate
       =<  -  %+  ~(rib by +.old)  *pype-1
-      |=  [kev=_=|(pype-0 ?>(&(?=(^ ->) ?=(%1 -<)) n.->)) acc=pype-1]
+      |=  [kev=_?>(?=([%1 ^] old) n.+.old) acc=pype-1]
       ?>  ?=(%1 -.acc)
       :_  kev
       :-  -.acc  %+  ~(put by +.acc)  p.kev
@@ -165,12 +167,12 @@
           rok
         =<  -  %^  (dip:((on aeon vock:sum-0) gte) trok)  rok.tid.q.kev  *trok
         |=  [a=trok k=aeon v=vock:sum-0]
-        [`v | (put:((on aeon vock:sum) gte) a k (mock v))]
+        [`v | (put:((on aeon vock:sum) gte) a k (urck v))]
       ::
           wav
         =<  -  %^  (dip:((on aeon vave:sum-0) lte) twav)  wav.tid.q.kev  *twav
         |=  [a=twav k=aeon v=vave:sum-0]
-        [`v | (put:((on aeon vave:sum) lte) a k (mave v))]
+        [`v | (put:((on aeon vave:sum) lte) a k (uwve v))]
       ==
     --
   --
