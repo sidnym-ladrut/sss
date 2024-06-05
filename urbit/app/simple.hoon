@@ -238,7 +238,7 @@
     ::  using the only possible path, `/sum/foo`. Think of this as analogous to
     ::  current `[%give %fact paths cage]` cards.
       %add
-    =^  cards  pub-sum  (give:du-sum [%sum %foo ~] %0 !<(@ vase))
+    =^  cards  pub-sum  (give:du-sum [%sum %foo ~] %1 !<(@ vase))
     ~&  >  "pub-sum is: {<read:du-sum>}"
     [cards this]
   ::
