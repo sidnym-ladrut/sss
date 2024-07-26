@@ -270,6 +270,8 @@
     =/  last=[=aeon =rock:lake]  (fall (pry:rok rok.tide) *[key val]:rok)
     =.  wav.tide  (put:wav wav.tide next wave)
     =.  mem.tide  ~
+    ::  NOTE: Perform a test run to catch crashes before the wave is stored!
+    =+  (form tide(rul [`0 1]))
     ?.  =(next (add aeon.last frequency.rul.tide))  buoy
     buoy(tid (form tide))
   ::
